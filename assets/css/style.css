@@ -1,0 +1,889 @@
+/* ==========================================================================
+   1. VARIABLES, RESET & CONFIGURATION COMMUNE
+   ========================================================================== */
+:root {
+    --tech-dark: #0f172a;
+    /* Bleu nuit pro */
+    --tech-cyan: #06b6d4;
+    /* Cyan chaleureux */
+    --tech-cyan-hover: #0891b2;
+    /* Cyan au survol */
+    --tech-blue: #1e40af;
+    /* Bleu confiance */
+    --slate-50: #f8fafc;
+    --slate-100: #f1f5f9;
+    --slate-200: #e2e8f0;
+    --slate-300: #cbd5e1;
+    --slate-600: #475569;
+    --slate-700: #334155;
+    --slate-800: #1e293b;
+    --white: #ffffff;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --radius-xl: 12px;
+    --radius-2xl: 16px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--slate-50);
+    color: var(--slate-800);
+    line-height: 1.6;
+}
+
+main {
+    display: block;
+}
+
+/* ==========================================================================
+   2. BARRE DE NAVIGATION (NAVBAR)
+   ========================================================================== */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 64px;
+    border-bottom: 1px solid var(--slate-100);
+}
+
+.nav-container {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--tech-dark);
+    letter-spacing: -0.5px;
+}
+
+.logo span {
+    color: var(--tech-cyan);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--slate-600);
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--tech-cyan);
+}
+
+.btn-nav {
+    background-color: var(--tech-dark);
+    color: var(--white) !important;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-nav:hover {
+    background-color: var(--slate-700);
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--slate-700);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.mobile-menu {
+    display: none;
+    background-color: var(--white);
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    box-shadow: var(--shadow-md);
+    padding: 16px 24px 24px;
+    flex-direction: column;
+    gap: 16px;
+    border-top: 1px solid var(--slate-100);
+}
+
+.mobile-menu.active {
+    display: flex;
+}
+
+.mobile-menu a {
+    text-decoration: none;
+    color: var(--slate-700);
+    font-weight: 500;
+    padding: 8px 0;
+}
+
+.btn-nav-mobile {
+    background-color: var(--tech-dark);
+    color: var(--white) !important;
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 8px;
+}
+
+/* ==========================================================================
+   3. SECTION HERO (ACCROCHE FLASH)
+   ========================================================================== */
+.hero {
+    position: relative;
+    background: linear-gradient(135deg, var(--tech-dark) 0%, var(--slate-800) 50%, var(--tech-blue) 100%);
+    color: var(--white);
+    padding: 96px 24px;
+    overflow: hidden;
+}
+
+/* Motif de grille en arrière-plan */
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.08;
+    background-image: radial-gradient(var(--tech-cyan) 1px, transparent 1px);
+    background-size: 16px_16px;
+}
+
+.hero-container {
+    max-width: 1150px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+.hero-text {
+    max-width: 768px;
+}
+
+.badge {
+    /* inline-flex: display; */
+    /* Fallback */
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(6, 182, 212, 0.15);
+    color: var(--tech-cyan);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 24px;
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--tech-cyan);
+    border-radius: 50%;
+    display: inline-block;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 6px rgba(6, 182, 212, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(6, 182, 212, 0);
+    }
+}
+
+.hero h1 {
+    font-size: 44px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    margin-bottom: 24px;
+}
+
+.hero h1 span {
+    background: linear-gradient(to right, var(--tech-cyan), #a5f3fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero p {
+    font-size: 18px;
+    color: var(--slate-300);
+    max-width: 645px;
+    margin-bottom: 40px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.btn-primary {
+    background-color: var(--tech-cyan);
+    color: var(--tech-dark);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: var(--radius-xl);
+    box-shadow: 0 10px 15px -3px rgba(6, 182, 212, 0.2);
+    transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: var(--tech-cyan-hover);
+}
+
+.btn-secondary {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: var(--radius-xl);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    transition: background-color 0.2s;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ==========================================================================
+   4. STRUCTURE COMMUNE DES SECTIONS
+   ========================================================================== */
+.services,
+.histoire,
+.tarifs,
+.portfolio,
+.contact {
+    padding: 80px 24px;
+}
+
+.section-header {
+    text-align: center;
+    max-width: 768px;
+    margin: 0 auto 64px;
+}
+
+.section-header h2 {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--tech-dark);
+    letter-spacing: -0.5px;
+}
+
+.section-header p {
+    color: var(--slate-600);
+    margin-top: 16px;
+    font-size: 16px;
+}
+
+/* ==========================================================================
+   5. SECTION SERVICES (EXPERTISES)
+   ========================================================================== */
+.services {
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.grid-services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.card {
+    background-color: var(--white);
+    padding: 32px;
+    border-radius: var(--radius-2xl);
+    border: 1px solid var(--slate-100);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.card .icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+}
+
+.card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--tech-dark);
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: var(--slate-600);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   6. SECTION HISTOIRE
+   ========================================================================== */
+.histoire {
+    background-color: var(--tech-dark);
+    color: var(--white);
+}
+
+.histoire-container {
+    max-width: 1150px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.sub-title {
+    color: var(--tech-cyan);
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.histoire h2 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+}
+
+.histoire p {
+    color: var(--slate-300);
+    margin-bottom: 16px;
+    line-height: 1.7;
+}
+
+.histoire p strong {
+    color: var(--tech-cyan);
+}
+
+.histoire-image {
+    display: flex;
+    justify-content: center;
+}
+
+.image-placeholder {
+    position: relative;
+    width: 288px;
+    height: 288px;
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    background-color: var(--slate-800);
+    border: 2px solid var(--slate-700);
+    box-shadow: var(--shadow-md);
+}
+
+/* Masque le texte alternatif si l'image réelle "nicolas.jpg" est présente */
+.image-placeholder span {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--slate-600);
+    font-size: 14px;
+    text-align: center;
+    padding: 24px;
+    z-index: 1;
+}
+
+.image-placeholder img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+}
+
+/* ==========================================================================
+   7. SECTION TARIFS
+   ========================================================================== */
+.tarifs {
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.grid-tarifs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    max-width: 896px;
+    margin: 0 auto;
+}
+
+.card-tarif {
+    background-color: var(--white);
+    padding: 32px;
+    border-radius: var(--radius-2xl);
+    border: 1px solid var(--slate-200);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-tarif.featured {
+    border: 2px solid var(--tech-cyan);
+    box-shadow: var(--shadow-md);
+}
+
+.ribbon {
+    position: absolute;
+    top: -12px;
+    right: 24px;
+    background-color: var(--tech-cyan);
+    color: var(--tech-dark);
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    letter-spacing: 0.5px;
+}
+
+.card-tarif h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--tech-dark);
+}
+
+.tarif-sub {
+    color: var(--slate-600);
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.price {
+    font-size: 30px;
+    font-weight: 900;
+    color: var(--tech-dark);
+    margin: 24px 0;
+}
+
+.price span {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--slate-600);
+}
+
+.features-list {
+    list-style: none;
+    border-top: 1px solid var(--slate-100);
+    padding-top: 24px;
+}
+
+.features-list li {
+    font-size: 14px;
+    color: var(--slate-700);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-tarif-secondary {
+    display: block;
+    text-align: center;
+    background-color: var(--slate-100);
+    color: var(--tech-dark);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 12px;
+    border-radius: var(--radius-xl);
+    margin-top: 32px;
+    transition: background-color 0.2s;
+}
+
+.btn-tarif-secondary:hover {
+    background-color: var(--slate-200);
+}
+
+.btn-tarif-primary {
+    display: block;
+    text-align: center;
+    background-color: var(--tech-dark);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 12px;
+    border-radius: var(--radius-xl);
+    margin-top: 32px;
+    transition: background-color 0.2s;
+}
+
+.btn-tarif-primary:hover {
+    background-color: var(--slate-700);
+}
+
+/* ==========================================================================
+   8. SECTION PORTFOLIO
+   ========================================================================== */
+.portfolio {
+    background-color: var(--slate-100);
+}
+
+.portfolio .section-header {
+    max-width: 1150px;
+    margin: 0 auto 64px;
+}
+
+.grid-portfolio {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.card-portfolio {
+    background-color: var(--white);
+    border-radius: var(--radius-2xl);
+    border: 1px solid var(--slate-200);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.portfolio-content {
+    padding: 24px;
+}
+
+.tag {
+    font-size: 11px;
+    font-weight: 700;
+    color: #0891b2;
+    background-color: #ecfeff;
+    padding: 4px 10px;
+    border-radius: 9999px;
+    display: inline-block;
+}
+
+.card-portfolio h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--tech-dark);
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+.card-portfolio p {
+    color: var(--slate-600);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.portfolio-footer {
+    padding: 24px;
+    background-color: var(--slate-50);
+    border-top: 1px solid var(--slate-100);
+}
+
+.link-demo {
+    color: var(--tech-blue);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.link-demo:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   9. SECTION CONTACT (FORMULAIRE DE PRODUCTION)
+   ========================================================================== */
+.contact {
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 48px;
+}
+
+.contact-info h2 {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--tech-dark);
+    letter-spacing: -0.5px;
+}
+
+.contact-info p {
+    color: var(--slate-600);
+    margin-top: 16px;
+    margin-bottom: 32px;
+}
+
+.info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-weight: 500;
+    color: var(--slate-700);
+}
+
+.contact-form-container {
+    background-color: var(--white);
+    padding: 32px;
+    border-radius: var(--radius-2xl);
+    border: 1px solid var(--slate-200);
+    box-shadow: var(--shadow-sm);
+}
+
+#form-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--tech-dark);
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px;
+    border: 1px solid var(--slate-300);
+    border-radius: var(--radius-xl);
+    font-size: 15px;
+    color: var(--tech-dark);
+    width: 100%;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--tech-cyan);
+}
+
+.btn-submit {
+    background-color: var(--tech-dark);
+    color: var(--white);
+    border: none;
+    padding: 16px;
+    border-radius: var(--radius-xl);
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-submit:hover {
+    background-color: var(--slate-800);
+}
+
+.btn-submit:disabled {
+    background-color: var(--slate-300);
+    cursor: not-allowed;
+}
+
+.status-message {
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.status-message.success {
+    color: #10b981;
+}
+
+.status-message.error {
+    color: #ef4444;
+}
+
+/* ==========================================================================
+   10. PIED DE PAGE (FOOTER)
+   ========================================================================== */
+.footer {
+    background-color: var(--tech-dark);
+    color: var(--slate-300);
+    padding: 48px 24px;
+    border-top: 1px solid var(--slate-800);
+}
+
+.footer-container {
+    max-width: 1150px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-links a {
+    color: var(--slate-300);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--tech-cyan);
+}
+
+/* ==========================================================================
+   11. MEDIA QUERIES (ADAPTATION MOBILES & TABLETTES)
+   ========================================================================== */
+
+/* FORMAT TABLETTE & PETITS ÉCRANS (Écrans inférieurs à 968px) */
+@media (max-width: 968px) {
+    .histoire-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .histoire-image {
+        order: -1;
+        /* Place la photo au-dessus du texte sur tablette/mobile */
+    }
+
+    .grid-services {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-portfolio {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+/* FORMAT SMARTPHONE (Écrans inférieurs à 768px) */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        /* Cache le menu horizontal */
+    }
+
+    .menu-toggle {
+        display: flex;
+        /* Affiche le bouton hamburger */
+    }
+
+    .hero {
+        padding: 64px 24px;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+
+    .section-header h2,
+    .contact-info h2 {
+        font-size: 26px;
+    }
+
+    .grid-services,
+    .grid-tarifs,
+    .grid-portfolio {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+}

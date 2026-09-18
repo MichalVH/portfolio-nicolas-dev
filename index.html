@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Nicolas Van Hoove - Développeur Web Freelance spécialisé dans la création de sites internet performants pour professionnels et secteur médico-social proche de Bordeaux.">
+    <title>Nicolas Van Hoove | Développeur Web Freelance</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- 1. BARRE DE NAVIGATION -->
+    <nav class="navbar" role="navigation" aria-label="Menu principal">
+        <div class="nav-container">
+            <div class="logo">NVH<span>.dev</span></div>
+            <div class="nav-links">
+                <a href="#services">Expertises</a>
+                <a href="#histoire">Mon Approche</a>
+                <a href="#tarifs">Tarifs</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#contact" class="btn-nav">Me contacter</a>
+            </div>
+            <button id="menu-toggle" class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div id="mobile-menu" class="mobile-menu">
+            <a href="#services">Expertises</a>
+            <a href="#histoire">Mon Approche</a>
+            <a href="#tarifs">Tarifs</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact" class="btn-nav-mobile">Me contacter</a>
+        </div>
+    </nav>
+
+    <!-- 2. SECTION HERO (ACCROCHE FLASH) -->
+    <header class="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <span class="badge"><span class="pulse-dot"></span>Disponible en Gironde & Grand Sud-Ouest</span>
+                <h1>Création de sites web professionnels <br><span>efficaces & sur-mesure</span></h1>
+                <p>Développeur web basé à 1h de Bordeaux, j'associe rigueur technique et écoute humaine pour propulser
+                    la visibilité numérique de votre activité.</p>
+                <div class="hero-buttons">
+                    <a href="#tarifs" class="btn-primary">Voir les offres</a>
+                    <a href="#contact" class="btn-secondary">Discuter de votre projet</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 3. SECTION SERVICES (EXPERTISES) -->
+        <section id="services" class="services">
+            <div class="section-header">
+                <h2>Des solutions numériques orientées résultats</h2>
+                <p>Je conçois des sites optimisés pour le référencement, fluides sur mobile et alignés avec vos
+                    objectifs commerciaux.</p>
+            </div>
+            <div class="grid-services">
+                <article class="card">
+                    <div class="icon">💻</div>
+                    <h3>Développement Sur-Mesure</h3>
+                    <p>Sites vitrines codés proprement en HTML5, CSS3 et JavaScript. Performance maximale, chargement
+                        ultra-rapide et code évolutif.</p>
+                </article>
+                <article class="card">
+                    <div class="icon">⚙️</div>
+                    <h3>Gestion WordPress & CMS</h3>
+                    <p>Création et personnalisation d'environnements WordPress complets pour vous permettre de modifier
+                        vos textes et articles en toute autonomie.</p>
+                </article>
+                <article class="card">
+                    <div class="icon">📈</div>
+                    <h3>Optimisation Référencement (SEO)</h3>
+                    <p>Mise en conformité technique pour Google (balisage sémantique, vitesse, responsive) afin de
+                        capter des clients dans votre région.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- 4. SECTION HISTOIRE -->
+        <section id="histoire" class="histoire">
+            <div class="histoire-container">
+                <div class="histoire-text">
+                    <span class="sub-title">Mon parcours, votre force</span>
+                    <h2>10 ans au service de l'humain, <br>désormais au service de votre code</h2>
+                    <p>Avant de me spécialiser dans le développement web, j'ai exercé pendant 10 ans en tant
+                        qu'<strong>aide-soignant et auxiliaire de vie</strong>. Ce parcours m'a inculqué un sens aigu de
+                        l'écoute, de la rigueur et de la compréhension fine des besoins des utilisateurs.</p>
+                    <p>Aujourd'hui, j'applique cette même méthodologie bienveillante et structurée à la création de vos
+                        écosystèmes web, avec une affinité naturelle et une expertise unique pour le secteur de la
+                        santé, du soin et du médico-social.</p>
+                </div>
+                <div class="histoire-image">
+                    <div class="image-placeholder">
+                        <span>[ Insérer votre photo professionnelle ici dans assets/img/ ]</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. SECTION TARIFS -->
+        <section id="tarifs" class="tarifs">
+            <div class="section-header">
+                <h2>Des forfaits clairs et transparents</h2>
+                <p>Pas de mauvaise surprise, nous définissons ensemble le périmètre avant de commencer.</p>
+            </div>
+            <div class="grid-tarifs">
+                <!-- Pack Standard -->
+                <div class="card-tarif">
+                    <div class="tarif-content">
+                        <h3>Pack Site Vitrine Standard</h3>
+                        <p class="tarif-sub">Idéal pour une visibilité locale rapide</p>
+                        <div class="price">690 € <span>forfait unique</span></div>
+                        <ul class="features-list">
+                            <li><span>🔹</span> Code sur-mesure (HTML/CSS/JS)</li>
+                            <li><span>🔹</span> Interface 100% Mobile & Tablette</li>
+                            <li><span>🔹</span> Formulaire de contact sécurisé</li>
+                            <li><span>🔹</span> Optimisation SEO Google de base</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="btn-tarif-secondary">Choisir ce forfait</a>
+                </div>
+                <!-- Pack WordPress -->
+                <div class="card-tarif featured">
+                    <span class="ribbon">Le plus demandé</span>
+                    <div class="tarif-content">
+                        <h3>Pack Site WordPress Administrable</h3>
+                        <p class="tarif-sub">Idéal pour publier et modifier vos contenus</p>
+                        <div class="price">1 190 € <span>forfait unique</span></div>
+                        <ul class="features-list">
+                            <li><span>✨</span> Tout le contenu du Pack Standard</li>
+                            <li><span>✨</span> Interface d'administration WordPress</li>
+                            <li><span>✨</span> Autonomie totale sur les textes et images</li>
+                            <li><span>✨</span> Formation vidéo de 30 min incluse</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="btn-tarif-primary">Choisir ce forfait</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. SECTION PORTFOLIO -->
+        <section id="portfolio" class="portfolio">
+            <div class="section-header">
+                <h2>Modèles & Réalisations</h2>
+                <p>Découvrez mes architectures de démonstration prêtes à être déployées et adaptées pour votre activité.
+                </p>
+            </div>
+            <div class="grid-portfolio">
+                <!-- Projet Medica -->
+                <article class="card-portfolio">
+                    <div class="portfolio-content">
+                        <span class="tag">Modèle de Démo</span>
+                        <h3>Cabinet Paramédical - Medica</h3>
+                        <p>Site vitrine complet développé pour les cabinets d'infirmiers libéraux ou kinésithérapeutes.
+                            Gestion des prestations, RGPD et prise de rendez-vous fluide.</p>
+                    </div>
+                    <div class="portfolio-footer">
+                        <a href="https://github.io" target="_blank" class="link-demo">Voir la démo en ligne →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 7. SECTION CONTACT -->
+        <section id="contact" class="contact">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2>Discutons de votre projet</h2>
+                    <p>Une question, un besoin de devis gratuit ? N'hésitez pas à me joindre directement.</p>
+                    <div class="info-list">
+                        <p class="info-item">📞 06 71 82 16 57</p>
+                        <p class="info-item">✉️ nicolas.vanhoove@gmail.com</p>
+                        <p class="info-item">📍 Région Bordelaise (Gironde)</p>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <form id="form-contact">
+                        <!-- IMPORTANT : Remplacez la valeur ci-dessous par votre clé d'accès Web3Forms -->
+                        <input type="hidden" name="access_key" value="VOTRE_CLE_ICI_APRES_INSCRIPTION">
+                        <input type="hidden" name="subject" value="Nouveau message depuis votre Portfolio">
+                        <input type="checkbox" name="botcheck" class="botcheck" style="display: none;">
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Nom / Entreprise</label>
+                                <input type="text" name="name" id="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Téléphone</label>
+                                <input type="tel" name="phone" id="phone" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Adresse email</label>
+                            <input type="email" name="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Votre projet en quelques mots</label>
+                            <textarea name="message" id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" id="btn-submit" class="btn-submit">Envoyer la demande</button>
+                        <p id="status-message" class="status-message"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Nicolas Van Hoove. Tous droits réservés.</p>
+            <div class="footer-links">
+                <a href="#" target="_blank">🔗 LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
