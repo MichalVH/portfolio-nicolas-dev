@@ -107,6 +107,8 @@ main {
     font-weight: 600;
     font-size: 14px;
     box-shadow: var(--shadow-sm);
+    text-decoration: none;
+    display: inline-block;
 }
 
 .btn-nav:hover {
@@ -164,6 +166,7 @@ main {
     padding: 12px;
     border-radius: 8px;
     margin-top: 8px;
+    text-decoration: none;
 }
 
 /* ==========================================================================
@@ -177,7 +180,6 @@ main {
     overflow: hidden;
 }
 
-/* Motif de grille en arrière-plan */
 .hero::before {
     content: '';
     position: absolute;
@@ -199,8 +201,6 @@ main {
 }
 
 .badge {
-    /* inline-flex: display; */
-    /* Fallback */
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -436,7 +436,6 @@ main {
     box-shadow: var(--shadow-md);
 }
 
-/* Masque le texte alternatif si l'image réelle "nicolas.jpg" est présente */
 .image-placeholder span {
     position: absolute;
     inset: 0;
@@ -657,7 +656,7 @@ main {
 }
 
 /* ==========================================================================
-   9. SECTION CONTACT (FORMULAIRE DE PRODUCTION)
+   9. SECTION CONTACT
    ========================================================================== */
 .contact {
     max-width: 1150px;
@@ -804,10 +803,8 @@ main {
 }
 
 /* ==========================================================================
-   11. MEDIA QUERIES (ADAPTATION MOBILES & TABLETTES)
+   11. MEDIA QUERIES (RESPONSIVE)
    ========================================================================== */
-
-/* FORMAT TABLETTE & PETITS ÉCRANS (Écrans inférieurs à 968px) */
 @media (max-width: 968px) {
     .histoire-container {
         grid-template-columns: 1fr;
@@ -817,13 +814,9 @@ main {
 
     .histoire-image {
         order: -1;
-        /* Place la photo au-dessus du texte sur tablette/mobile */
     }
 
-    .grid-services {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
+    .grid-services,
     .grid-portfolio {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -834,16 +827,13 @@ main {
     }
 }
 
-/* FORMAT SMARTPHONE (Écrans inférieurs à 768px) */
 @media (max-width: 768px) {
     .nav-links {
         display: none;
-        /* Cache le menu horizontal */
     }
 
     .menu-toggle {
         display: flex;
-        /* Affiche le bouton hamburger */
     }
 
     .hero {
